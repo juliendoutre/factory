@@ -18,7 +18,10 @@ It's very **opinionated** so it may not be a good fit for all use cases. Especia
 
 ## Getting started
 
-TODO
+1. Create a new repository based on this repository.
+2. cd `./apps/github/terraform/`
+3. GITHUB_TOKEN=$(gh auth token) terraform plan
+3. GITHUB_TOKEN=$(gh auth token) terraform apply
 
 ## Terminology
 

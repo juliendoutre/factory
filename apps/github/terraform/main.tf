@@ -16,9 +16,10 @@ resource "github_repository" "factory" {
   vulnerability_alerts = true
 
   security_and_analysis {
-    advanced_security {
-      status = "enabled"
-    }
+    // This is always enabled for public repositories.
+    // advanced_security {
+    //   status = "enabled"
+    // }
 
     secret_scanning {
       status = "enabled"

@@ -88,6 +88,11 @@ resource "github_repository_ruleset" "default" {
   }
 }
 
+resource "github_actions_repository_permissions" "actions_permissions" {
+  repository = github_repository.factory.name
+  enabled    = false
+}
+
 import {
   id = "factory"
   to = github_repository.factory

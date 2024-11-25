@@ -68,3 +68,5 @@ As an auditor:
 - `apps/`: all applications:
     - any app folder is required to contain a `README.md` file describing what it does.
     - if it contains a `terraform/` folder, the underlying infrastructure will be kept in sync at deploy time. Changes will be computed in the CI.
+    - if it contains a `main.go` file, it will be built as a binary.
+- `dagger/`: dagger.io Go CI

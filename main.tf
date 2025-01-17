@@ -44,10 +44,7 @@ resource "github_actions_repository_permissions" "actions_permissions" {
   allowed_actions_config {
     github_owned_allowed = true
     verified_allowed     = true
-    patterns_allowed = [
-      "golangci/golangci-lint-action@*",
-      "hadolint/hadolint-action@*",
-    ]
+    patterns_allowed     = []
   }
 }
 

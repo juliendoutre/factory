@@ -16,6 +16,8 @@ brew install tfenv gh
 ./enforce.sh <REPO>
 ```
 
+You may want to edit [imports.tf](./imports.tf) to import existing rulesets, or the repository's general config in [main.tf](./main.tf) to tweak the settings depending on your needs.
+
 ## Development
 
 ### Format the code

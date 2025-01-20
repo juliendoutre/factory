@@ -25,5 +25,5 @@ You may want to edit [imports.tf](./imports.tf) to import existing rulesets, or 
 ```shell
 brew install shellcheck
 terraform fmt
-shellcheck ./*.sh
+shellcheck ./enforce.sh
 ```

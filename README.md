@@ -7,7 +7,7 @@ It uses the [GitHub Terraform provider](https://registry.terraform.io/providers/
 ## Prerequisites
 
 ```shell
-brew install tfenv gh
+brew install tfenv gh jq
 ```
 
 ## Usage

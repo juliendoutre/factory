@@ -27,6 +27,12 @@ resource "github_repository" "repository" {
     }
   }
 
+  template {
+    owner                = "juliendoutre"
+    repository           = "template"
+    include_all_branches = false
+  }
+
   lifecycle {
     ignore_changes = [
       description,
@@ -44,7 +50,10 @@ resource "github_actions_repository_permissions" "actions_permissions" {
   allowed_actions_config {
     github_owned_allowed = true
     verified_allowed     = true
-    patterns_allowed     = []
+    patterns_allowed = [
+      "golangci/golangci-lint-action@*",
+      "hadolint/hadolint-action@*",
+    ]
   }
 }
 
@@ -75,13 +84,11 @@ resource "github_repository_ruleset" "default" {
   }
 
   rules {
-    creation                      = true
-    deletion                      = true
-    non_fast_forward              = true
-    required_linear_history       = true
-    required_signatures           = true
-    update                        = true
-    update_allows_fetch_and_merge = false
+    creation                = true
+    deletion                = true
+    non_fast_forward        = true
+    required_linear_history = true
+    required_signatures     = true
 
     pull_request {
       dismiss_stale_reviews_on_push     = true

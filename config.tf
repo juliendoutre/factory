@@ -9,4 +9,6 @@ terraform {
   }
 }
 
-provider "github" {}
+provider "github" {
+  owner = var.owner
+}

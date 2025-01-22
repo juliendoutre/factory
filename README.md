@@ -13,10 +13,11 @@ brew install tfenv gh jq
 ## Usage
 
 ```shell
-./enforce.sh <REPO>
+./enforce.sh <REPO> <OWNER>
 ```
 
 If `<REPO>` does not exist yet, it will be created based on the https://github.com/juliendoutre/template template.
+If `<OWNER>` is omitted, the current authenticated GitHub user will be used.
 
 You may want to edit the repository's configuration in [main.tf](./main.tf) to tweak the settings depending on your needs.
 

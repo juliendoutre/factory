@@ -37,6 +37,7 @@ resource "github_repository" "repository" {
     ignore_changes = [
       description,
       homepage_url,
+      template,
     ]
   }
 }

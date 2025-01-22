@@ -33,9 +33,17 @@ trap cleanup EXIT
 # Initialize state
 terraform init
 
-# Import eventually defined rulesets
-import_ruleset "releases"
-import_ruleset "default"
+# Import the repository if it already exists
+REPOSITORY_ID=$(gh repo view "$REPOSITORY" --json id || echo '{"id": ""}' | jq -r -c '.id')
+if [[ -n "${REPOSITORY_ID}" ]]; then
+    terraform import -var repository="$REPOSITORY" github_repository.repository "$REPOSITORY"
+    terraform import -var repository="$REPOSITORY" github_actions_repository_permissions.actions_permissions "$REPOSITORY"
+    terraform import -var repository="$REPOSITORY" github_repository_dependabot_security_updates.dependabot_security_updates "$REPOSITORY"
+
+    # Import eventually defined rulesets
+    import_ruleset "releases"
+    import_ruleset "default"
+fi
 
 # Enforce settings
 terraform apply -var repository="$REPOSITORY"

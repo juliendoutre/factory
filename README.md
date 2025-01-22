@@ -16,7 +16,9 @@ brew install tfenv gh jq
 ./enforce.sh <REPO>
 ```
 
-You may want to edit [imports.tf](./imports.tf) to import existing rulesets, or the repository's general config in [main.tf](./main.tf) to tweak the settings depending on your needs.
+If `<REPO>` does not exist yet, it will be created based on the https://github.com/juliendoutre/template template.
+
+You may want to edit the repository's configuration in [main.tf](./main.tf) to tweak the settings depending on your needs.
 
 ## Development
 
